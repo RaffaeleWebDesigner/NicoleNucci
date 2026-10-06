@@ -2,7 +2,21 @@
   "permissions": {
     "allow": [
       "Bash(npm create *)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(ls \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Desktop\\\\Raffaele\\\\Siti creati\")",
+      "Bash(where python *)",
+      "Bash(where python3 *)",
+      "Bash(python -m http.server 8123)",
+      "Bash(taskkill //F //IM python.exe)",
+      "Bash(node --check assets/js/data.js)",
+      "Bash(node --check assets/js/main.js)",
+      "PowerShell(gh auth status 2>&1)",
+      "PowerShell(gh --version)",
+      "Bash(git -C \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Desktop\\\\Raffaele\\\\Siti creati\\\\Sito psicologa Nicole Nucci\" remote -v)",
+      "Bash(git -C \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Desktop\\\\Raffaele\\\\Siti creati\\\\Sito PAS\" remote -v)",
+      "Bash(git config *)",
+      "Bash(cmdkey /list)",
+      "Bash(npx tsc *)"
     ]
   }
 }

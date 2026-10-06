@@ -1,57 +1,79 @@
-export default function About() {
-  return (
-    <section id="chi-sono" className="relative z-10 bg-black px-6 py-28 md:py-36">
-      <div className="max-w-3xl mx-auto">
-        <p className="text-[11px] font-medium tracking-[0.14em] text-white/50 mb-4">
-          CHI SONO
-        </p>
-        <h2
-          className="text-white mb-10"
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontWeight: 400,
-            fontSize: 'clamp(28px, 3.6vw, 44px)',
-            lineHeight: 1.15,
-            letterSpacing: '-0.02em',
-          }}
-        >
-          Dott.ssa Nicole Nucci, psicologa clinica
-        </h2>
+import { useRef } from 'react'
+import { BadgeCheck, Brain, GraduationCap, Sprout } from 'lucide-react'
+import { useReveal } from '../lib/motion'
+import { Eyebrow, SpotCard, Title } from './ui'
 
-        <div className="space-y-5 text-[15px] leading-relaxed text-white/70">
-          <p>
+const credentials = [
+  { icon: GraduationCap, title: 'Laurea in Psicologia Clinica', note: 'Conseguita con il massimo dei voti' },
+  { icon: Brain, title: 'Master in Neuropsicologia Clinica', note: 'Formazione post-laurea' },
+  { icon: Sprout, title: 'Psicoterapia Cognitivo Neuropsicologica', note: 'Specializzazione in corso' },
+  { icon: BadgeCheck, title: 'Ordine degli Psicologi della Toscana', note: 'Sezione A · n. 10696' },
+]
+
+export default function About() {
+  const ref = useRef<HTMLElement>(null)
+  useReveal(ref)
+
+  return (
+    <section
+      ref={ref}
+      id="chi-sono"
+      className="relative z-10 bg-black px-6 py-28 md:py-40 border-t border-white/10 overflow-hidden"
+    >
+      <div className="orb w-[500px] h-[500px] bg-[var(--amber)]/10 -right-40 top-20" />
+
+      <div className="relative max-w-6xl mx-auto grid lg:grid-cols-[1fr_1.1fr] gap-16 lg:gap-24">
+        <div className="lg:sticky lg:top-32 self-start">
+          <Eyebrow>CHI SONO</Eyebrow>
+          <Title>
+            Dott.ssa Nicole Nucci,
+            <br />
+            <span className="accent text-white/60">psicologa clinica</span>
+          </Title>
+
+          <div className="mt-12 grid gap-3">
+            {credentials.map(({ icon: Icon, title, note }, i) => (
+              <div key={title} data-reveal data-delay={0.1 + i * 0.08}>
+                <SpotCard className="rounded-2xl px-5 py-4 flex items-center gap-4">
+                  <span className="grid place-items-center h-10 w-10 shrink-0 rounded-full bg-white/[0.06] text-[var(--teal)]">
+                    <Icon size={18} strokeWidth={1.5} />
+                  </span>
+                  <div>
+                    <p className="text-[14px] font-medium text-white">{title}</p>
+                    <p className="text-[12px] text-white/50">{note}</p>
+                  </div>
+                </SpotCard>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-6 text-[16px] leading-[1.75] text-white/65 lg:pt-14">
+          <p data-reveal className="text-white text-[19px] leading-[1.6]">
             Sono la Dott.ssa Nicole Nucci, psicologa clinica ad Arezzo e San Giovanni Valdarno,
             iscritta all'Ordine degli Psicologi della Toscana – Sezione A (n. 10696).
           </p>
-          <p>
+          <p data-reveal>
             Dopo essermi laureata con il massimo dei voti, ho conseguito un Master in
-            Neuropsicologia Clinica; attualmente mi sto specializzando in Psicoterapia
-            Cognitivo Neuropsicologica.
+            Neuropsicologia Clinica; attualmente mi sto specializzando in Psicoterapia Cognitivo
+            Neuropsicologica.
           </p>
-          <p>
+          <p data-reveal>
             Nel mio lavoro offro sostegno psicologico, colloqui clinici, valutazioni
-            psicodiagnostiche e percorsi di gestione delle emozioni, costruiti su misura in
-            base ai bisogni della persona. L'obiettivo è creare uno spazio sicuro e accogliente
-            in cui poter comprendere ciò che si sta vivendo e rafforzare le proprie risorse.
+            psicodiagnostiche e percorsi di gestione delle emozioni, costruiti su misura in base ai
+            bisogni della persona. L'obiettivo è creare uno spazio sicuro e accogliente in cui poter
+            comprendere ciò che si sta vivendo e rafforzare le proprie risorse.
           </p>
-          <p>
-            Mi rivolgo ad adulti, adolescenti, bambini, coppie e gruppi sia in presenza che
-            online, accompagnandoli nei momenti di difficoltà emotiva, di cambiamento o di
-            crescita personale.
+          <p data-reveal>
+            Mi rivolgo ad adulti, adolescenti, bambini, coppie e gruppi sia in presenza che online,
+            accompagnandoli nei momenti di difficoltà emotiva, di cambiamento o di crescita
+            personale.
           </p>
-          <p>
-            Credo profondamente che prendersi cura della propria salute mentale sia importante
-            quanto prendersi cura della salute fisica: per questo il mio lavoro nasce dal
-            desiderio di aiutare le persone a stare meglio con sé stesse e con gli altri,
-            promuovendo consapevolezza, equilibrio e benessere psicologico.
+          <p data-reveal>
+            Il mio lavoro nasce dal desiderio di aiutare le persone a stare meglio con sé stesse e
+            con gli altri, promuovendo{' '}
+            <span className="accent text-[var(--teal)] text-[20px]">consapevolezza, equilibrio e benessere psicologico</span>.
           </p>
-        </div>
-
-        <div className="mt-12 liquid-glass rounded-2xl px-7 py-6 inline-block">
-          <p className="text-[11px] font-medium tracking-[0.14em] text-white/50 mb-1">
-            TITOLO DI STUDIO
-          </p>
-          <p className="text-[15px] text-white">Laurea in Psicologia Clinica</p>
         </div>
       </div>
     </section>

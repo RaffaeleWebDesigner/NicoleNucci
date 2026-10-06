@@ -12,6 +12,18 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["--yes", "serve", ".", "-l", "4174"],
       "port": 4174
+    },
+    {
+      "name": "pas-preview",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "4175", "--directory", "../Sito ASD Ponte agli Stolli"],
+      "port": 4175
+    },
+    {
+      "name": "pas-wow",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "4176", "--directory", "../Sito ASD Ponte agli Stolli"],
+      "port": 4176
     }
   ]
 }
